@@ -21,6 +21,9 @@ $waktu = date("Y-m-d H:i:s");
         <div class="box">
             <p>Waktu server: <code><?= $waktu ?></code></p>
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
+            <div> silahkan tekan link home dibawah!
+                <href="home.php">
+            </div>      
         </div>
     </div>
 </body>
