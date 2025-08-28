@@ -22,7 +22,7 @@ $waktu = date("Y-m-d H:i:s");
             <p>Waktu server: <code><?= $waktu ?></code></p>
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
             <div> silahkan tekan link home dibawah!
-                <a href="home.php">home</a>
+                <a href="/home.php">home</a>
             </div>      
         </div>
     </div>
