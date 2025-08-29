@@ -17,7 +17,7 @@ $waktu = date("Y-m-d H:i:s");
 <body>
     <div class="container">
         <h1>Selamat Datang di Website Bagaskara!</h1>
-        <p>pada laman web ini kamu akan diajari tentang bagaimana cara menghitung luas persegi panjang<strong><?= htmlspecialchars($nama) ?></strong></p>
+        <p>pada laman web ini kamu akan diajari tentang bagaimana cara menghitung luas persegi panjang! wahai <strong><?= htmlspecialchars($nama) ?></strong></p>
         <div class="box">
             <p>Waktu server: <code><?= $waktu ?></code></p>
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
@@ -25,6 +25,6 @@ $waktu = date("Y-m-d H:i:s");
             </div>      
         </div>
     </div>
-  <a href="/home.php">home</a>
+  <a href="/home.php">HOME</a>
 </body>
 </html>
