@@ -12,8 +12,7 @@
 </head>
 <body>
 <h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di page home </h1>
-
-<p>Pada laman kali ini, Aku akan membuat beberapa uji coba dari tugas pak Syahru yang berada di edlink</p><br>
+<p>Pada laman kali ini, Aku akan membuat beberapa uji coba dari tugas pak Syahru yang berada di edlink</p>
 <p>Pertama aku akan membuat sebuah percobaan untuk menghitung luas persegi panjang</p>
 <?php
 // index.php
