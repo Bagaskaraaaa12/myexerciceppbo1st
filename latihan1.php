@@ -18,13 +18,22 @@
 // index.php
 $panjang = 5;
 $lebar = 10;
-$hasil = $panjang * $lebar;
+$luas = $panjang * $lebar;
+$keliling = 2 * ($panjang + $lebar);
 ?>
     <div>
-    Hasil dari luas perhitungan sebuah persegi panjang dengan panjang 
-    <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
-    </div>
-    <div><strong><?= $hasil ?> <br>
+    Hasil dari luas persegi panjang dengan panjang 
+    <?= $panjang ?> cm dan lebar <?= $lebar ?> cm adalah:
+    </div><br>
+    <div><strong><?= $luas ?> <br>
+    <div>
+    Kemudian, hasil dari keliling persegi panjang dengan panjang
+    <?= $panjang ?> cm dan lebar <?= $lebar ?> cm adalah:
+    </div><br>
+    <div><strong><?= $keliling ?> <br>
+    <h2> Begitu  hasilnya, kamu bisa return ke menu home untuk melihat latihan yang lain ya! </h2>
+
+    <a href="home.php"> Home </a>
 </body>
 
     </html>
