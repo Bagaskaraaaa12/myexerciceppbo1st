@@ -16,15 +16,15 @@ $waktu = date("Y-m-d H:i:s");
 </head>
 <body>
     <div class="container">
-        <h1>Selamat Datang di Website Bagaskaraaaa !</h1>
-        <p>Halo yaah <strong><?= htmlspecialchars($nama) ?></strong></p>
+        <h1>Selamat Datang di Website Bagaskara!</h1>
+        <p>pada laman web ini kamu akan diajari tentang bagaimana cara menghitung luas persegi panjang<strong><?= htmlspecialchars($nama) ?></strong></p>
         <div class="box">
             <p>Waktu server: <code><?= $waktu ?></code></p>
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
             <div> silahkan tekan link home dibawah!
-                <a href="/home.php">home</a>
             </div>      
         </div>
     </div>
+  <a href="/home.php">home</a>
 </body>
 </html>
