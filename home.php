@@ -17,7 +17,7 @@
 <p>Pertama aku akan membuat sebuah percobaan untuk menghitung luas persegi panjang</p>
 <?php
 // index.php
-$nama = "Bagaskara"
+$nama = "Bagaskara";
 $panjang = 5;
 $lebar = 10;
 $hasil = $panjang * $lebar;
