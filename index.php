@@ -26,8 +26,11 @@ $hasil = $panjang * $lebar;
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
         </div>
     </div>
-      <h1>hasil dari perhitungan sebuah persegi panjang dengan panjang $panjang dan lebar $lebar adalah</h1>
-echo "Hasil perkalian: " . $hasil; 
+      <h1>
+    Hasil dari perhitungan sebuah persegi panjang dengan panjang 
+    <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
+</h1>
+<p><strong><?= $hasil ?></strong></p>
     
     <div>Jika kamu ingin pindah laman,  silahkan tekan link home dibawah ya!
     </div>      
