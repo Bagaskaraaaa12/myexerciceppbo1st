@@ -34,6 +34,6 @@ $hasil = $panjang * $lebar;
     
     <div>Jika kamu ingin pindah laman,  silahkan tekan link home dibawah ya!
     </div>      
-  <a href="/home.php">HOME</a>
+  <a href="home.php">HOME</a>
 </body>
 </html>
