@@ -1,9 +1,6 @@
 <?php
 // index.php
 $nama = "Bagaskara";
-$panjang = 5;
-$lebar = 10;
-$hasil = $panjang * $lebar;
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -19,16 +16,10 @@ $hasil = $panjang * $lebar;
 <body>
     <div class="container">
         <h1>Selamat Datang di Website Bagaskara!</h1>
-        <p>pada laman web ini kamu akan diajari tentang bagaimana cara menghitung luas persegi panjang! wahai <strong><?= htmlspecialchars($nama) ?></strong></p>
-        <div class="box">
-        </div>
+       
     </div>
-      <div>
-    Hasil dari perhitungan sebuah persegi panjang dengan panjang 
-    <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
-</div>
 <div><strong><?= $hasil ?></strong></div>
-    <div>Jika kamu ingin pindah laman untuk membuat sebuah class produk dsb.,  silahkan tekan link home dibawah ya!
+    <div>Jika kamu ingin pindah laman untuk melihat latihan pertama,  silahkan tekan link home dibawah ya!
     </div>      
   <a href="home.php">HOME</a>
 </body>
