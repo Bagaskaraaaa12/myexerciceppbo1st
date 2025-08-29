@@ -1,4 +1,12 @@
 <?php
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Website PHP di Hugging Face</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    </style>
 class Produk {
     // Property
     public $nama;
