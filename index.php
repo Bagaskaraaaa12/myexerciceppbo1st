@@ -16,9 +16,7 @@ $nama = "Bagaskara";
 <body>
     <div class="container">
         <h1>Selamat Datang di Website Bagaskara!</h1>
-       
     </div>
-<div><strong><?= $hasil ?></strong></div>
     <div>Jika kamu ingin pindah laman untuk melihat latihan pertama,  silahkan tekan link home dibawah ya!
     </div>      
   <a href="home.php">HOME</a>
