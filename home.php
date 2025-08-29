@@ -1,22 +1,36 @@
 <?php
-class produk {
+class Produk {
     // Property
-    public $merk;
+    public $nama;
     public $harga;
     public $stok;
 
-    // Method
-    public function beli() {
-        return "anda membeli barang $this->merk seharga $this->harga yang memiliki sisa stok $this->stok, sekarang sisa stok yang ada adalah $stok-1";
+    // Method tampilkanInfo
+    public function tampilkanInfo() {
+        return "Produk: $this->nama dengan Harga: Rp $this->harga, Mempunyai sisa Stok: $this->stok";
+    }
+
+    // Method beliProduk
+    public function beliProduk($jumlah) {
+        if ($jumlah > $this->stok) {
+            return "Maaf, stok tidak cukup untuk membeli $jumlah item.";
+        } else {
+            $this->stok -= $jumlah;
+            return "Anda berhasil membeli $jumlah $this->nama. Sisa stok: $this->stok";
+        }
     }
 }
 
-Membuat Object
-<?php
-// Membuat objek dari class produk
-$merk1 = new produk();
-$merk1->merk = "chitato";
-$merk1->harga = 10000;
-$merk1->stok = 50;
+// Membuat objek dari class Produk
+$produk1 = new Produk();
+$produk1->nama = "Chitato";
+$produk1->harga = 10000;
+$produk1->stok = 50;
 
-echo $merk1->beli(); 
+// Tes method
+echo $produk1->tampilkanInfo();
+echo "<br>";
+echo $produk1->beliProduk(3);
+echo "<br>";
+echo $produk1->tampilkanInfo();
+?>
