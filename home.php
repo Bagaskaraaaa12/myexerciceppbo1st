@@ -7,7 +7,44 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 50px;
+
+            background-image: url('bg-study.jpg'); 
+            background-size: cover;   
+            background-position: center; 
+            background-attachment: fixed; 
         }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        }
+        p {
+            color: white;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            margin-top: 30px;
+        }
+        .menu a {
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.8); /* kotak semi transparan */
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+        .menu a:hover {
+            background: linear-gradient(135deg, #ffcc70, #ff8177);
+            color: white;
+            transform: translateY(-5px); 
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+        }
+        
+
     </style>
 </head>
 <body>
