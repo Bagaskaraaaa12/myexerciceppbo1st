@@ -19,4 +19,4 @@ $merk1->merk = "chitato";
 $merk1->harga = 10000;
 $merk1->stok = 50;
 
-echo $mobil1->jalan(); 
+echo $merk1->beli(); 
