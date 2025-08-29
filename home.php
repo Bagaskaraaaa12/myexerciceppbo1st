@@ -22,7 +22,7 @@ $lebar = 10;
 $hasil = $panjang * $lebar;
 ?>
     <div>
-    Hasil dari perhitungan sebuah persegi panjang dengan panjang 
+    Hasil dari luas perhitungan sebuah persegi panjang dengan panjang 
     <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
     </div>
     <div><strong><?= $hasil ?> <br>
