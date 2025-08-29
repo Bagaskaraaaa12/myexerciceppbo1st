@@ -7,18 +7,13 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 50px;
-
-            background-image: url('bg-study.jpg'); 
-            background-size: cover;   
-            background-position: center; 
-            background-attachment: fixed; 
         }
         h1 {
-            color: white;
+            color: navy;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
         }
         p {
-            color: white;
+            color: navy;
         }
         .menu {
             display: flex;
@@ -39,7 +34,7 @@
         }
         .menu a:hover {
             background: linear-gradient(135deg, #ffcc70, #ff8177);
-            color: white;
+            color: black;
             transform: translateY(-5px); 
             box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
         }
