@@ -28,8 +28,9 @@ class Produk {
         if ($jumlah > $this->stok) {
             return "Maaf, stok tidak cukup untuk membeli $jumlah item.";
         } else {
-            $this->stok -= $jumlah;
-            return "Anda berhasil membeli $jumlah $this->nama. Sisa stok: $this->stok";
+           $this->stok -= $jumlah;
+            $total = $this->harga * $jumlah;
+            return "Anda berhasil membeli $jumlah $this->nama dengan total harga Rp $total. Sisa stok: $this->stok";
         }
     }
 }
