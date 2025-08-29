@@ -1,7 +1,6 @@
 <?php
 // index.php
-$nama = "Peserta Praktik";
-$waktu = date("Y-m-d H:i:s");
+$nama = "Bagaskara";
 $panjang = 5;
 $lebar = 10;
 $hasil = $panjang * $lebar;
@@ -22,8 +21,6 @@ $hasil = $panjang * $lebar;
         <h1>Selamat Datang di Website Bagaskara!</h1>
         <p>pada laman web ini kamu akan diajari tentang bagaimana cara menghitung luas persegi panjang! wahai <strong><?= htmlspecialchars($nama) ?></strong></p>
         <div class="box">
-            <p>Waktu server: <code><?= $waktu ?></code></p>
-            <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
         </div>
     </div>
       <div>
