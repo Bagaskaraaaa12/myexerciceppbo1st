@@ -27,9 +27,8 @@ $hasil = $panjang * $lebar;
     Hasil dari perhitungan sebuah persegi panjang dengan panjang 
     <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
 </div>
-<h1><strong><?= $hasil ?></strong></h1>
-    
-    <div>Jika kamu ingin pindah laman,  silahkan tekan link home dibawah ya!
+<div><strong><?= $hasil ?></strong></div>
+    <div>Jika kamu ingin pindah laman untuk membuat sebuah class produk dsb.,  silahkan tekan link home dibawah ya!
     </div>      
   <a href="home.php">HOME</a>
 </body>
