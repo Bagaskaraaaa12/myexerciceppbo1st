@@ -10,7 +10,7 @@
         <div>
             silahkan kembali ke index
             <a href="/index.php">index</a>
-</div>
-</div>
+        </div>
+    </div>
 </body>
 </html>
