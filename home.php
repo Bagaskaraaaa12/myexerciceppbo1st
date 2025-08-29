@@ -12,21 +12,8 @@
 </head>
 <body>
 <h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di page home </h1>
-<p>Pada laman kali ini, Aku akan membuat beberapa uji coba dari tugas pak Syahru yang berada di edlink</p>
-<p>Pertama aku akan membuat sebuah percobaan untuk menghitung luas persegi panjang</p>
-<?php
-// index.php
-$nama = "Bagaskara";
-$panjang = 5;
-$lebar = 10;
-$hasil = $panjang * $lebar;
-?>
-    <div>
-    Hasil dari luas perhitungan sebuah persegi panjang dengan panjang 
-    <?= $panjang ?> dan lebar <?= $lebar ?> adalah:
-    </div>
-    <div><strong><?= $hasil ?> <br>
-
+<p>silahkan pilih opsi yang anda inginkan dibawah ini</p>
+<a href="latihan1.php"> latihan 1 </a>
 <p> selanjutnya, aku akan membuat sebuah program dimana aku akan menghitung sebuah class produk dengan harga, stok, dan merk yang ada</p>
 <?php
 class Produk {
