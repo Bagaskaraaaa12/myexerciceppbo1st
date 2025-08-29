@@ -24,6 +24,10 @@ $hasil = panjang * lebar;
         <div class="box">
             <p>Waktu server: <code><?= $waktu ?></code></p>
             <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
+             <h1>hasil dari</h1>
+        <p<strong><?= htmlspecialchars($panjang) ?></strong></p>
+         <p<strong><?= htmlspecialchars($lebar) ?></strong></p>  
+        <div>$hasil</div>
             <div> silahkan tekan link home dibawah ya!
             </div>      
         </div>
