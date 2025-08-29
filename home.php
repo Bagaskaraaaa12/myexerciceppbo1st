@@ -11,7 +11,9 @@
     </style>
 </head>
 <body>
-
+<h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di page home </h1>
+<p>Pada laman kali ini, kamu akan aku arahin untuk melihat stok dan harga yang tersedia apabila kamu membeli sebuah produk dengan jumlaah tertetuu</p>
+    
 <?php
 class Produk {
     public $nama;
