@@ -1,24 +1,27 @@
-<?php
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Website PHP di Hugging Face</title>
+    <title>Contoh Produk</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
     </style>
+</head>
+<body>
+
+<?php
 class Produk {
-    // Property
     public $nama;
     public $harga;
     public $stok;
 
-    // Method tampilkanInfo
     public function tampilkanInfo() {
         return "Produk: $this->nama dengan Harga: Rp $this->harga, Mempunyai sisa Stok: $this->stok";
     }
 
-    // Method beliProduk
     public function beliProduk($jumlah) {
         if ($jumlah > $this->stok) {
             return "Maaf, stok tidak cukup untuk membeli $jumlah item.";
@@ -28,17 +31,19 @@ class Produk {
         }
     }
 }
-
-// Membuat objek dari class Produk
 $produk1 = new Produk();
 $produk1->nama = "Chitato";
 $produk1->harga = 10000;
 $produk1->stok = 50;
-
-// Tes method
+echo "<div>";
 echo $produk1->tampilkanInfo();
-echo "<br>";
+echo "<br><br>";
 echo $produk1->beliProduk(3);
-echo "<br>";
+echo "<br><br>";
 echo $produk1->tampilkanInfo();
+echo "</div>";
 ?>
+
+</body>
+</html>
+
