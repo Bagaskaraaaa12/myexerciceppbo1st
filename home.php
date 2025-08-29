@@ -26,6 +26,6 @@ $hasil = panjang * lebar;
             </div>      
         </div>
     </div>
-  <a href="/home.php">HOME</a>
+  <a href="/index.php">INDEX</a>
 </body>
 </html>
