@@ -2,6 +2,9 @@
 // index.php
 $nama = "Peserta Praktik";
 $waktu = date("Y-m-d H:i:s");
+$panjang = 5;
+$lebar = 10;
+$hasil = panjang * lebar;
 ?>
 <!DOCTYPE html>
 <html lang="id">
