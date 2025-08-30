@@ -33,10 +33,10 @@
             box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
         }
         .menu a:hover {
-            background: linear-gradient(135deg, #ffcc70, #ff8177);
+            background: linear-gradient(135deg, #9a92e5ff, #ffffffff);
             color: black;
             transform: translateY(-5px); 
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.83);
         }
         
 
