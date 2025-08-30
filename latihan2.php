@@ -88,7 +88,7 @@ echo "</div>";
 ?>
 
 <p>Jika anda sudah membeli, maka anda bisa kembali ke menu HOME dibawah ini ya</p>
-<div class="home">
+<div class="menu">
 <a href="home.php"> HOME </a>
 </div>
 </body>
