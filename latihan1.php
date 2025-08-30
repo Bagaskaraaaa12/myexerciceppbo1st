@@ -62,8 +62,8 @@ $luas = $panjang * $lebar;
 $keliling = 2 * ($panjang + $lebar);
 ?>
 
-    <p>Jika sebuah persegi panjang memiliki</p><br>
-    <p>Panjang : 5 CM    |   Tinggi  : 10 CM </p><br>
+    <p>Jika sebuah persegi panjang memiliki</p>
+    <p>Panjang : 5 CM    |   Tinggi  : 10 CM </p>
     <p> Berapakah Luas dan Keliling persegi panjang tersebut?</p>
     <div class="rumus">
             Rumus persegi panjang <br>

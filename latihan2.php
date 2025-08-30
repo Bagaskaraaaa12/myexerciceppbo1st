@@ -8,10 +8,38 @@
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
+        h1 {
+            color: navy;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        }
+        p {
+            color: navy;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            margin-top: 30px;
+        }
+        .menu a {
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(145, 62, 62, 0.8); /* kotak semi transparan */
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #fffdfdff;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(96, 26, 26, 0.3);
+        }
+        
+
     </style>
 </head>
 <body>
-<h1> Halo, disini aku akan membuat sebuah program dimana aku akan menghitung sebuah class produk dengan harga, stok, dan merk yang ada</h1>
+<h1> Selamat datang di Latihan 2</h1>
+<p>pada laman ini, kamu akan mengetahui apa nama merk, harga, dan stok dari sebuah produk</p>
+
 <?php
 class Produk {
     public $nama;
@@ -19,7 +47,8 @@ class Produk {
     public $stok;
 
     public function tampilkanInfo() {
-        return "Produk: $this->nama dengan Harga: Rp $this->harga, Mempunyai sisa Stok: $this->stok";
+        return "kami mempunyai sebuah Produk: $this->nama <br> Harganya : Rp $this->harga,<br> Sisa Stok: $this->stok"; 
+        return "berapa banyak yang ingin anda beli?";
     }
 
     public function beliProduk($jumlah) {
@@ -28,7 +57,7 @@ class Produk {
         } else {
            $this->stok -= $jumlah;
             $total = $this->harga * $jumlah;
-            return "Anda berhasil membeli $jumlah $this->nama dengan total harga Rp $total. Sisa stok: $this->stok";
+            return "Anda berhasil membeli $jumlah buah  $this->nama dengan total harga Rp $total. <br> Sisa stok $this->nama adalah : $this->stok";
         }
     }
 }
@@ -44,5 +73,10 @@ echo "<br><br>";
 echo $produk1->tampilkanInfo();
 echo "</div>";
 ?>
+
+<p>Jika anda sudah membeli, maka anda bisa kembali ke menu HOME dibawah ini ya</p>
+<div class="home>
+<a href="home.php"> HOME </a>
+</div>
 </body>
 </html>
