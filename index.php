@@ -21,7 +21,7 @@ $nama = "Bagaskara";
         }
         .menu {
             display: flex;
-            justify-content: column;
+            justify-content: center;
             gap: 20px; 
             margin-top: 30px;
         }

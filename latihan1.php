@@ -17,13 +17,13 @@
         }
         .menu {
             display: flex;
-            justify-content: column;
+            justify-content: center;
             gap: 20px; 
             margin-top: 30px;
         }
         .menu a {
             display: inline-block;
-            padding: 60px 100px;
+            padding: 20px 40px;
             background: rgba(145, 62, 62, 0.8); /* kotak semi transparan */
             border-radius: 12px;
             text-decoration: none;
@@ -37,6 +37,17 @@
             color: black;
             transform: translateY(-5px); 
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.83);
+        }
+        .rumus {
+            display: inline-block; /* biar jadi kotak */
+            padding: 20px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            text-align: left; /* biar tulisan rata kiri */
+            font-family: monospace; /* biar mirip gaya rumus */
+            color: navy;
         }
     </style>
 </head>
@@ -54,7 +65,7 @@ $keliling = 2 * ($panjang + $lebar);
     <p>Jika sebuah persegi panjang memiliki</p><br>
     <p>Panjang : 5 CM    |   Tinggi  : 10 CM </p><br>
     <p> Berapakah Luas dan Keliling persegi panjang tersebut?</p>
-    <div class="menu">
+    <div class="rumus">
             Rumus persegi panjang <br>
         Luas        =   Panjang x lebar <br>
         Keliling    = 2 * (panjang+lebar) <br>
