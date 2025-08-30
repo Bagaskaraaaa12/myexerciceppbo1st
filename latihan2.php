@@ -32,6 +32,17 @@
             transition: 0.3s;
             box-shadow: 0px 4px 10px rgba(96, 26, 26, 0.3);
         }
+        .tampil {
+            display: inline-block; /* biar jadi kotak */
+            padding: 20px;
+            margin: 20px auto;
+            background: rgba(194, 68, 68, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            text-align: left; /* biar tulisan rata kiri */
+            font-family: monospace; /* biar mirip gaya rumus */
+            color: navy;
+        }
         
 
     </style>
@@ -47,10 +58,11 @@ class Produk {
     public $stok;
 
     public function tampilkanInfo() {
+        <div class="tampil">
         return "kami mempunyai sebuah Produk: $this->nama <br> Harganya : Rp $this->harga,<br> Sisa Stok: $this->stok"; 
-        return "berapa banyak yang ingin anda beli?";
+        </div>
     }
-
+    <p>Berapa banyak yang ingin anda beli?</p>
     public function beliProduk($jumlah) {
         if ($jumlah > $this->stok) {
             return "Maaf, stok tidak cukup untuk membeli $jumlah item.";
