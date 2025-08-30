@@ -58,11 +58,12 @@ class Produk {
     public $stok;
 
     public function tampilkanInfo() {
-        <div class="tampil">
-        return "kami mempunyai sebuah Produk: $this->nama <br> Harganya : Rp $this->harga,<br> Sisa Stok: $this->stok"; 
-        </div>
+        return "<div class='tampil'>
+        Kami mempunyai sebuah Produk: $this->nama <br> 
+        Harganya : Rp $this->harga,<br> 
+        Sisa Stok: $this->stok
+    </div>";
     }
-    <p>Berapa banyak yang ingin anda beli?</p>
     public function beliProduk($jumlah) {
         if ($jumlah > $this->stok) {
             return "Maaf, stok tidak cukup untuk membeli $jumlah item.";
@@ -87,7 +88,7 @@ echo "</div>";
 ?>
 
 <p>Jika anda sudah membeli, maka anda bisa kembali ke menu HOME dibawah ini ya</p>
-<div class="home>
+<div class="home">
 <a href="home.php"> HOME </a>
 </div>
 </body>
