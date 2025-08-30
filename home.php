@@ -44,11 +44,18 @@
 </head>
 <body>
 <h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di page home </h1>
+<p>Dibawah ini terdapat beberapa tugas dari praktikum 3 yang telah dikerjakan</p>
 <p>silahkan pilih opsi yang anda inginkan dibawah ini</p>
 <div class="menu">
-<a href="latihan1.php"> latihan 1 </a><br>
-<a href="latihan2.php"> latihan 2 </a><br>
-<a href="latihan3.php"> latihan 3 </a>
+<a href="latihan1.php"> LATIHAN 1 </a><br>
+<a href="latihan2.php"> LATIHAN 2 </a><br>
+<a href="latihan3.php"> LATIHAN 3 </a>
+    </div>
+    <p>
+        Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini
+    </p>
+    <div class="menu">
+        <a href="index.php"> INDEX </a>
     </div>
 </body>
 </html>
