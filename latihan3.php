@@ -11,8 +11,6 @@ class User {
         }
     }
 }
-
-// Kalau form dikirim
 $result = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputUser = $_POST["username"];
