@@ -55,10 +55,10 @@
     <p>
         dibawah ini terdapat tugas teori pemrograman berorientasi projek
     </p>
-    <div>
+    <div class="menu">
     <a href="objeksegitiga.php"> Objek Segitiga </a><br>
     <a href="classsegitiga.php"> Class Segitiga </a><br>
-    </div class="menu">
+    </div>
 
     <p>
         Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini
