@@ -49,7 +49,8 @@
 <div class="menu">
 <a href="latihan1.php"> LATIHAN 1 </a><br>
 <a href="latihan2.php"> LATIHAN 2 </a><br>
-<a href="latihan3.php"> LATIHAN 3 </a>
+<a href="latihan3.php"> LATIHAN 3 </a><br>
+<a href="tugasmandiri.php"> Tugas Mandiri </a>
     </div>
     <p>
         Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini
