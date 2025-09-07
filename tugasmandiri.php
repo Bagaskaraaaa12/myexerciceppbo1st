@@ -35,9 +35,9 @@ class Perpustakaan {
 
 $perpus = new Perpustakaan();
 
-$buku1 = new Buku("Bumi", "Tere Liye", );
-$buku2 = new Buku("Bulan", "Tere Liye", );
-$buku3 = new Buku("Matahari", "Tere Liye", );
+$buku1 = new Buku("Bumi", "Tere Liye", 2014);
+$buku2 = new Buku("Bulan", "Tere Liye", 2017);
+$buku3 = new Buku("Matahari", "Tere Liye", 2020);
 
 $perpus->tambahBuku($buku1);
 $perpus->tambahBuku($buku2);

@@ -1,5 +1,5 @@
 <?php
-require_once "class_segitiga.php";
+require_once "classsegitiga.php";
 
 $segitiga1 = new Segitiga(10, 8, 6, 8, 6);
 
