@@ -53,6 +53,14 @@
 <a href="tugasmandiri.php"> Tugas Mandiri </a>
     </div>
     <p>
+        dibawah ini terdapat tugas teori pemrograman berorientasi projek
+    </p>
+    <div>
+    <a href="objeksegitiga.php"> Objek Segitiga </a><br>
+    <a href="classsegitiga.php"> Class Segitiga </a><br>
+    </div>
+
+    <p>
         Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini
     </p>
     <div class="menu">
