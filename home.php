@@ -58,7 +58,7 @@
     <div>
     <a href="objeksegitiga.php"> Objek Segitiga </a><br>
     <a href="classsegitiga.php"> Class Segitiga </a><br>
-    </div>
+    </div class="menu">
 
     <p>
         Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini
