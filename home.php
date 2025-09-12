@@ -59,6 +59,7 @@
     <a href="objeksegitiga.php"> Objek Segitiga </a><br>
     <a href="classsegitiga.php"> Class Segitiga </a><br>
     <a href="latihanobjek.php"> Latihan Objek </a><br>
+    <a href="enkapsulasi.php"> Enkapsulasi </a><br>
     </div>
 
     <p>
