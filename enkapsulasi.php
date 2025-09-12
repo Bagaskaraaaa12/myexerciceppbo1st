@@ -32,7 +32,7 @@ echo $mobil_yuda->hidupkan_mobil(); //hidupkan mobil
 
 <?php
 // buat class mobil
-class mobil
+class mobill
 {
   // buat protected property
   protected $pemilik = "yuda";
@@ -50,7 +50,7 @@ class mobil
   }
 }
 // buat objek dari class mobil (instansiasi)
-$mobil_yuda = new mobil();
+$mobil_yuda = new mobill();
 // jalankan method akses_pemilik()
 echo $mobil_yuda->akses_pemilik(); // "yuda"
 echo "\n";
