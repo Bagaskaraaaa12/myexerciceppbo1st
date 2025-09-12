@@ -58,6 +58,7 @@
     <div class="menu">
     <a href="objeksegitiga.php"> Objek Segitiga </a><br>
     <a href="classsegitiga.php"> Class Segitiga </a><br>
+    <a href="latihanobjek.php"> Latihan Objek </a><br>
     </div>
 
     <p>
