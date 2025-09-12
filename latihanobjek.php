@@ -84,7 +84,7 @@ echo "\n";
 ?>
 
 <br>
-    
+
 <?php
 class akun {
     var $email;
@@ -101,15 +101,30 @@ $email_pertama = new akun();
 $username_pertama = new akun();
 $password_pertama = new akun();
 
-$email_pertama->email = "budi@gmail.com";
-$username_pertama->username = "budi";
-$password_pertama->password = "123";
+$email_pertama->email = "email : budi@gmail.com";
+$username_pertama->username = "username : budi";
+$password_pertama->password = "password : 123";
 
 echo $email_pertama->email;
 echo "\n";
 echo $username_pertama->username;
 echo "\n";
 echo $password_pertama->password;
+echo "\n";
+
+$email_kedua = new akun();
+$username_kedua = new akun();
+$password_kedua = new akun();
+
+$email_kedua->email = "email : yanto@gmail.com";
+$username_kedua->username = "username : yanto";
+$password_kedua->password = "password : 456";
+
+echo $email_kedua->email;
+echo "\n";
+echo $username_kedua->username;
+echo "\n";
+echo $password_kedua->password;
 echo "\n";
 ?>
 
