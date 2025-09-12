@@ -45,7 +45,7 @@ echo "\n";
 echo $mobil_syahrul->matikan_mobil();
 
 // Buat class mobil
-class mobil
+class mobill
 {
   // buat property untuk class laptop
   var $pemilik;
@@ -64,9 +64,9 @@ class mobil
   }
 }
 // buat objek dari class laptop (instansiasi)
-$mobil_syahrul = new mobil();
-$mobil_rahma = new mobil();
-$mobil_yuda = new mobil();
+$mobil_syahrul = new mobill();
+$mobil_rahma = new mobill();
+$mobil_yuda = new mobill();
 // set property
 $mobil_syahrul->pemilik = "Syahrukhan";
 $mobil_rahma->pemilik = "Rahmadhan";
