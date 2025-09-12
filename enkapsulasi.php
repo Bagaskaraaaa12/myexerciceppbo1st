@@ -84,6 +84,38 @@ $yamaha_yuda = new yamaha();
 echo $yamaha_yuda->tampilkan_jenismesin(); //“Yamaha CB JKT 48”
 ?>
 
+<br>
+
+<?php
+//buat class kendaraan
+class kendaraan
+{
+  // property dengan hak akses private
+  private $jenis_mesin = "AKA 748 TURBO JET NUKLIR";
+  public function tampilkan_mesin()
+  {
+    return $this->jenis_mesin;
+  }
+}
+//buat class motor
+class motor extends kendaraan
+{
+  public function tampilkan_mesin()
+  {
+    return $this->jenis_mesin;
+  }
+}
+// buat objek dari class motor (instantiation)
+$kendaraan_motor = new kendaraan();
+$motor_honda = new motor();
+//jalankan method dari class kendaraan
+echo $kendaraan_motor->tampilkan_mesin(); //AKA 748 TURBO
+// JET NUKLIR
+//jalankan method dari class motor (error)
+echo $motor_honda->tampilkan_mesin();
+//notice:Undefined property: motor::$jenis_mesin
+?>
+
 <div>
     <p> tekan logo dibawah jika anda ingin kembali ke menu home</p>
     <a href="home.php"> Home </a>
