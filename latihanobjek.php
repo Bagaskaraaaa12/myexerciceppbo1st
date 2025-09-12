@@ -83,6 +83,8 @@ echo "\n";
 
 ?>
 
+<br>
+    
 <?php
 class akun {
     var $email;
