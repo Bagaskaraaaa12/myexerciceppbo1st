@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 <?php
 // Buat class mobil
 class Mobil {
@@ -35,3 +44,11 @@ echo $mobil_syahrul->hidupkan_mobil();
 echo "\n";
 echo $mobil_syahrul->matikan_mobil();
 
+?>
+
+<div>
+    <p> tekan logo dibawah jika anda ingin kembali ke menu home</p>
+    <a href="home.php"> Home </a>
+</div>
+</body>
+</html>
