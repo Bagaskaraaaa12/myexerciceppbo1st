@@ -44,6 +44,8 @@ echo $mobil_syahrul->hidupkan_mobil();
 echo "\n";
 echo $mobil_syahrul->matikan_mobil();
 
+echo "\n";
+echo "br";
 // Buat class mobil
 class mobill
 {
@@ -77,6 +79,35 @@ echo "\n";
 echo $mobil_rahma->pemilik; //rahma
 echo "\n";
 echo $mobil_yuda->pemilik; //yuda
+echo "\n";
+
+?>
+
+<?php
+class akun {
+    var $email;
+    var $username;
+    var $password;
+
+    function login_berhasil()
+    {
+    return ", anda berhasil login!";
+    }
+}
+
+$email_pertama = new akun();
+$username_pertama = new akun();
+$password_pertama = new akun();
+
+$email_pertama->email = "budi@gmail.com";
+$username_pertama->username = "budi";
+$password_pertama->password = "123";
+
+echo $email_pertama->email;
+echo "\n";
+echo $username_pertama->username;
+echo "\n";
+echo $password_pertama->password;
 echo "\n";
 ?>
 
