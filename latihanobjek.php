@@ -45,7 +45,7 @@ echo "\n";
 echo $mobil_syahrul->matikan_mobil();
 
 echo "\n";
-echo "br";
+
 // Buat class mobil
 class mobill
 {
