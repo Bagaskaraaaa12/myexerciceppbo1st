@@ -88,7 +88,7 @@ echo $yamaha_yuda->tampilkan_jenismesin(); //“Yamaha CB JKT 48”
 
 <?php
 //buat class kendaraan
-class kendaraan
+class kendaraann
 {
   // property dengan hak akses private
   private $jenis_mesin = "AKA 748 TURBO JET NUKLIR";
@@ -98,7 +98,7 @@ class kendaraan
   }
 }
 //buat class motor
-class motor extends kendaraan
+class motorr extends kendaraann
 {
   public function tampilkan_mesin()
   {
@@ -106,8 +106,8 @@ class motor extends kendaraan
   }
 }
 // buat objek dari class motor (instantiation)
-$kendaraan_motor = new kendaraan();
-$motor_honda = new motor();
+$kendaraan_motor = new kendaraann();
+$motor_honda = new motorr();
 //jalankan method dari class kendaraan
 echo $kendaraan_motor->tampilkan_mesin(); //AKA 748 TURBO
 // JET NUKLIR
