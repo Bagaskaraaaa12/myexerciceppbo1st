@@ -48,6 +48,9 @@ echo $mobil_syahrul->matikan_mobil();
 
 <div>
     <p> tekan logo dibawah jika anda ingin kembali ke menu home</p>
+    <div>
+        link modul bs diakses di https://bit.ly/Prak5PBO
+    </div>
     <a href="home.php"> Home </a>
 </div>
 </body>
