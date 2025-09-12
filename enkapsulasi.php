@@ -30,6 +30,8 @@ echo $mobil_yuda->hidupkan_mobil(); //hidupkan mobil
 
 ?>
 
+<br>
+
 <?php
 // buat class mobil
 class mobill
