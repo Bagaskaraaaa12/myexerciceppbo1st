@@ -51,6 +51,8 @@
 <a href="latihan2.php"> LATIHAN 2 </a><br>
 <a href="latihan3.php"> LATIHAN 3 </a><br>
 <a href="tugasmandiri.php"> Tugas Mandiri </a>
+<a href="enkapsulasi.php"> Enkapsulasi </a><br>
+<a href="this.php"> Variabel  This </a><br>
     </div>
     <p>
         dibawah ini terdapat tugas teori pemrograman berorientasi projek
@@ -59,8 +61,6 @@
     <a href="objeksegitiga.php"> Objek Segitiga </a><br>
     <a href="classsegitiga.php"> Class Segitiga </a><br>
     <a href="latihanobjek.php"> Latihan Objek </a><br>
-    <a href="enkapsulasi.php"> Enkapsulasi </a><br>
-     <a href="this.php"> Variabel  This </a><br>
     </div>
 
     <p>
