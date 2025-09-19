@@ -52,37 +52,76 @@
     </style>
 </head>
 <body>
-<h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di praktikum 5.1 </h1>
-<p>Mari kita membuat Buat sebuah class Mahasiswa dengan property: nama, nim, prodi, angkatan, dan keterangan (aktif, cuti, keluar).</p>
+<h1 style="font-family : arial"> Selamat datang, kamu sekarang berada di praktikum 5.2 </h1>
+<p>Mari kita membuat sebuah Ubah class Mahasiswa sehingga IPK bersifat protected dan password bersifat private. Tambahkan method untuk menampilkan keduanya sesuai aturan hak akses.</p>
 <?php
 class Mahasiswa {
-    public $nama;
-    public $nim;
-    public $prodi;
-    public $angkatan;
-    public $keterangan;
+    var $nama;
+    var $nim;
+    var $prodi;
 
-    public function __construct($nama, $nim, $prodi, $angkatan, $keterangan) {
-        $this->nama = $nama;
-        $this->nim = $nim;
-        $this->prodi = $prodi;
-        $this->angkatan = $angkatan;
-        $this->keterangan = $keterangan;
+    protected $ipk;       
+    private $password;  
+
+    protected function getNilaiIPK() {
+        return "Nilai IPK mahasiswa adalah $this->ipk";
     }
 
-    public function getKeterangan() {
-        return "Mahasiswa {$this->nama} statusnya adalah {$this->keterangan}.";
+    private function getPassword() {
+        return "Password akun mahasiswa adalah $this->password";
+    }
+
+    function setNilaiIPK($ipk) {
+        $this->ipk = $ipk;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function tampilkanIPK() {
+        return $this->getNilaiIPK();
+    }
+
+    public function tampilkanPassword() {
+        return $this->getPassword();
     }
 }
 
-$mhs1 = new Mahasiswa("Rifa", "H1101241023", "Sistem Informasi", 2024, "Aktif");
-$mhs2 = new Mahasiswa("Rasyid", "H1101241049", "Sistem Informasi", 2024, "Cuti");
-$mhs3 = new Mahasiswa("Nabil", "H1101241000", "Sistem Komputer", 2024, "Keluar");
+$m1 = new Mahasiswa();
+$m1->nama = "Rifa";
+$m1->nim = "H1101241023";
+$m1->prodi = "Sistem Informasi";
+$m1->setNilaiIPK(3.8);
+$m1->setPassword("123");
 
-echo $mhs1->getKeterangan() . "<br>";
-echo $mhs2->getKeterangan() . "<br>";
-echo $mhs3->getKeterangan() . "<br>";
+$m2 = new Mahasiswa();
+$m2->nama = "Rasyid";
+$m2->nim = "H1101241049";
+$m2->prodi = "Sistem Informasi";
+$m2->setNilaiIPK(3.7);
+$m2->setPassword("456");
+
+$m3 = new Mahasiswa();
+$m3->nama = "Nabil";
+$m3->nim = "H1101241046";
+$m3->prodi = "Sistem Informasi";
+$m3->setNilaiIPK(3.75);
+$m3->setPassword("789");
+
+// Simpan ke array untuk looping
+$daftarMahasiswa = [$m1, $m2, $m3];
+
+// Tampilkan data
+foreach ($daftarMahasiswa as $mhs) {
+    echo "Nama: {$mhs->nama}<br>";
+    echo "NIM: {$mhs->nim}<br>";
+    echo "Prodi: {$mhs->prodi}<br>";
+    echo $mhs->tampilkanIPK() . "<br>";
+    echo $mhs->tampilkanPassword() . "<br><br>";
+}
 ?>
+
 
   <p>Jika anda sudah melihat hasilnya, maka anda bisa kembali ke menu HOME dibawah ini ya</p>
 <div class="menu">
