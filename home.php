@@ -53,6 +53,7 @@
 <a href="tugasmandiri.php"> Tugas Mandiri </a>
 <a href="enkapsulasi.php"> Enkapsulasi </a><br>
 <a href="this.php"> Variabel  This </a><br>
+<a href="praktikum51.php"> Praktikum 5.1 </a><br>
     </div>
     <p>
         dibawah ini terdapat tugas teori pemrograman berorientasi projek
