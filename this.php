@@ -13,5 +13,9 @@ class Mobil {
      }
 }
 
-$mobilsahroni = new mobiil();
-echo $mobilsahroni 
+$mobilsahroni = new Mobil();
+echo $mobilsahroni -> hidupkan_mobil();
+
+echo "\n";
+
+?>
