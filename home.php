@@ -31,10 +31,16 @@
         /* grid untuk menu */
         .menu {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            grid-template-columns: repeat(2, 1fr); /* default 2 kolom */
             gap: 20px;
-            justify-items: center; /* biar tombol di tengah */
+            justify-items: center;
             margin-top: 20px;
+        }
+
+        /* untuk menu dengan 1 tombol, biar ke tengah */
+        .menu.single {
+            display: flex;
+            justify-content: center;
         }
 
         /* tombol */
@@ -87,7 +93,7 @@
 
     <div class="section">
         <p>Jika kamu ingin kembali ke menu index, silahkan tekan opsi dibawah ini</p>
-        <div class="menu">
+        <div class="menu single">
             <a href="index.php"> INDEX </a>
         </div>
     </div>
