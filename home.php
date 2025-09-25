@@ -79,6 +79,7 @@
             <a href="this.php"> Variabel This </a>
             <a href="praktikum51.php"> Praktikum 5.1 </a>
             <a href="praktikum52.php"> Praktikum 5.2 </a>
+            <a href="praktikum6.php"> Praktikum 6 </a>
         </div>
     </div>
 
