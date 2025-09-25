@@ -15,6 +15,7 @@ COPY enkapsulasi.php /var/www/html/
 COPY this.php /var/www/html/
 COPY praktikum51.php /var/www/html/
 COPY praktikum52.php /var/www/html/
+COPY praktikum6.php /var/www/html/
 
 # (Opsional) Tambahkan ekstensi PHP jika diperlukan
 # RUN docker-php-ext-install mysqli pdo pdo_mysql
