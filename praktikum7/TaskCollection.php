@@ -1,88 +1,78 @@
 <?php
-// TaskCollection.php
-declare(strict_types=1);
-require_once __DIR__ . '/Task.php';
+require_once __DIR__ . "/Task.php";
 
-class TaskCollection implements IteratorAggregate
-{
-    /** @var Task[] */
+class TaskCollection {
+    private string $storage;
     private array $tasks = [];
-    private string $storageFile;
 
-    public function __construct(string $storageFile)
-    {
-        $this->storageFile = $storageFile;
-        $this->load();
+    public function __construct(string $storage) {
+        $this->storage = $storage;
+        if (file_exists($storage)) {
+            $data = json_decode(file_get_contents($storage), true) ?? [];
+            foreach ($data as $t) {
+                $task = new Task($t['title'], $t['position'], $t['completed']);
+                $task->id = $t['id'];
+                $this->tasks[] = $task;
+            }
+            // Sort by position
+            usort($this->tasks, fn($a,$b) => $a->position <=> $b->position);
+        }
     }
 
-    public function add(Task $task): Task
-    {
-        $nextId = empty($this->tasks) ? 1 : (max(array_map(fn(Task $t) => (int)$t->getId(), $this->tasks)) + 1);
-        $task->setId($nextId);
+    public function all(): array { return $this->tasks; }
+
+    public function add(Task $task): void {
+        $task->position = count($this->tasks);
         $this->tasks[] = $task;
-        $this->persist();
-        return $task;
+        $this->save();
     }
 
-    public function all(): array
-    {
-        return $this->tasks;
-    }
-
-    public function find(int $id): ?Task
-    {
-        foreach ($this->tasks as $t) {
-            if ($t->getId() === $id) return $t;
-        }
-        return null;
-    }
-
-    public function update(Task $task): bool
-    {
-        foreach ($this->tasks as $i => $t) {
-            if ($t->getId() === $task->getId()) {
-                $this->tasks[$i] = $task;
-                $this->persist();
-                return true;
+    public function toggle(string $id): void {
+        foreach ($this->tasks as $task) {
+            if ($task->id === $id) {
+                $task->completed = !$task->completed;
+                $this->save();
+                return;
             }
         }
-        return false;
     }
 
-    public function delete(int $id): bool
-    {
-        foreach ($this->tasks as $i => $t) {
-            if ($t->getId() === $id) {
-                array_splice($this->tasks, $i, 1);
-                $this->persist();
-                return true;
+    public function delete(string $id): void {
+        $this->tasks = array_filter($this->tasks, fn($t) => $t->id !== $id);
+        $this->tasks = array_values($this->tasks); // reindex
+        $this->save();
+    }
+
+    public function updateTitle(string $id, string $title): void {
+        foreach ($this->tasks as $task) {
+            if ($task->id === $id) {
+                $task->title = $title;
+                $this->save();
+                return;
             }
         }
-        return false;
     }
 
-    private function persist(): void
-    {
-        // store as JSON array for portability
-        $arr = array_map(fn(Task $t) => $t->toArray(), $this->tasks);
-        file_put_contents($this->storageFile, json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-    }
-
-    private function load(): void
-    {
-        if (!file_exists($this->storageFile)) {
-            $this->tasks = [];
-            return;
+    public function reorder(array $orderedIds): void {
+        $map = [];
+        foreach ($this->tasks as $task) $map[$task->id] = $task;
+        $this->tasks = [];
+        foreach ($orderedIds as $i => $id) {
+            if(isset($map[$id])) {
+                $map[$id]->position = $i;
+                $this->tasks[] = $map[$id];
+            }
         }
-        $json = file_get_contents($this->storageFile);
-        if (!$json) { $this->tasks = []; return; }
-        $arr = json_decode($json, true);
-        if (!is_array($arr)) { $this->tasks = []; return; }
-        $this->tasks = array_map(fn($d) => Task::fromArray($d), $arr);
+        $this->save();
     }
 
-    public function getIterator(): Traversable
-    {
-        return new ArrayIterator($this->tasks);
+    private function save(): void {
+        $arr = array_map(fn($t)=>[
+            "id"=>$t->id,
+            "title"=>$t->title,
+            "completed"=>$t->completed,
+            "position"=>$t->position
+        ], $this->tasks);
+        file_put_contents($this->storage, json_encode($arr, JSON_PRETTY_PRINT));
     }
 }
