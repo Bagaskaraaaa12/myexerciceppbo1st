@@ -79,6 +79,7 @@
             <a href="this.php"> Variabel This </a>
             <a href="praktikum51.php"> Praktikum 5.1 </a>
             <a href="praktikum52.php"> Praktikum 5.2 </a>
+            <a href="praktikum6.php"> Praktikum 6 </a>
         </div>
     </div>
 
@@ -89,6 +90,12 @@
             <a href="classsegitiga.php"> Class Segitiga </a>
             <a href="latihanobjek.php"> Latihan Objek </a>
         </div>
+    </div>
+    <div class="section">
+    <p>Tugas Praktikum 7 - To-Do List Manager</p>
+    <div class="menu single">
+        <a href="praktikum7/public/index.php"> Praktikum 7 </a>
+    </div>
     </div>
 
     <div class="section">
