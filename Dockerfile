@@ -16,6 +16,7 @@ COPY this.php /var/www/html/
 COPY praktikum51.php /var/www/html/
 COPY praktikum52.php /var/www/html/
 COPY praktikum6.php /var/www/html/
+COPY praktikum7 /var/www/html/praktikum7
 
 # (Opsional) Tambahkan ekstensi PHP jika diperlukan
 # RUN docker-php-ext-install mysqli pdo pdo_mysql
