@@ -1,154 +1,142 @@
 <?php
-require_once __DIR__ . "/../src/TaskCollection.php";
-require_once __DIR__ . "/../src/Task.php";
+require_once __DIR__ . '/../src/Models/NoteCollection.php';
+require_once __DIR__ . '/../src/Models/Note.php';
 
-$storage = __DIR__ . "/../storage/tasks.db";
-if(!file_exists($storage)) file_put_contents($storage, '[]');
-$tasks = new TaskCollection($storage);
+$storage = __DIR__ . '/../storage/notes.db';
+if(!file_exists($storage)) file_put_contents($storage,'[]');
+$notes = new NoteCollection($storage);
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+header('Content-Type: application/json');
+$data = json_decode(file_get_contents('php://input'), true) ?? [];
+
 if(str_starts_with($uri,'/api')){
-    header('Content-Type: application/json');
-    $method = $_SERVER['REQUEST_METHOD'];
-    $data = json_decode(file_get_contents('php://input'), true) ?? [];
-
-    // GET all
-    if($method==='GET' && $uri==='/api/tasks'){
-        echo json_encode($tasks->all());
-        exit;
+    switch($uri){
+        case '/api/notes':
+            if($_SERVER['REQUEST_METHOD']==='GET'){ echo json_encode(iterator_to_array($notes)); exit; }
+            if($_SERVER['REQUEST_METHOD']==='POST'){ $notes->add(new Note($data['title']??'', $data['content']??'', $data['important']??false)); echo json_encode(['status'=>'ok']); exit; }
+            break;
+        default:
+            if(preg_match('#^/api/notes/([^/]+)/toggle$#',$uri,$m)){
+                $notes->toggleImportant($m[1]);
+                echo json_encode(['status'=>'ok']); exit;
+            }
+            if(preg_match('#^/api/notes/([^/]+)$#',$uri,$m)){
+                $id=$m[1];
+                if($_SERVER['REQUEST_METHOD']==='DELETE'){ $notes->delete($id); echo json_encode(['status'=>'ok']); exit; }
+                if($_SERVER['REQUEST_METHOD']==='PATCH'){ $notes->update($id,$data['title']??'',$data['content']??''); echo json_encode(['status'=>'ok']); exit; }
+            }
     }
-    // POST add
-    if($method==='POST' && $uri==='/api/tasks'){
-        $tasks->add(new Task($data['title'] ?? ''));
-        echo json_encode(['status'=>'ok']);
-        exit;
-    }
-    // POST toggle
-    if(preg_match('#^/api/tasks/([^/]+)/toggle$#',$uri,$m)){
-        $tasks->toggle($m[1]);
-        echo json_encode(['status'=>'ok']);
-        exit;
-    }
-    // DELETE
-    if(preg_match('#^/api/tasks/([^/]+)$#',$uri,$m) && $method==='DELETE'){
-        $tasks->delete($m[1]);
-        echo json_encode(['status'=>'ok']);
-        exit;
-    }
-    // PATCH update title
-    if(preg_match('#^/api/tasks/([^/]+)$#',$uri,$m) && $method==='PATCH'){
-        $tasks->updateTitle($m[1], $data['title'] ?? '');
-        echo json_encode(['status'=>'ok']);
-        exit;
-    }
-    // POST reorder
-    if($uri==='/api/tasks/reorder' && $method==='POST'){
-        $tasks->reorder($data['order'] ?? []);
-        echo json_encode(['status'=>'ok']);
-        exit;
-    }
-
-    http_response_code(404);
-    echo json_encode(['status'=>'error']);
-    exit;
+    http_response_code(404); echo json_encode(['status'=>'error']); exit;
 }
 
-// Default: serve HTML UI
+// HTML + frontend
 ?><!DOCTYPE html>
 <html>
 <head>
-<title>To-Do List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes Manager</title>
 <style>
-body{font-family:sans-serif;background:#f4f4f6;margin:0;padding:20px;}
-h1{text-align:center;}
-.container{max-width:600px;margin:auto;background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.task{display:flex;align-items:center;justify-content:space-between;padding:10px;margin:8px 0;background:#f9f9f9;border-radius:8px;cursor:grab;}
-.task.completed span{text-decoration:line-through;color:gray;}
-.task span{flex:1;cursor:text;}
-.buttons button{margin-left:8px;border:none;border-radius:6px;padding:6px 10px;cursor:pointer;}
-.buttons .toggle{background:#4caf50;color:white;}
-.buttons .delete{background:#e74c3c;color:white;}
-#newTask{width:70%;padding:10px;border-radius:8px;border:1px solid #ccc;}
-#addBtn{padding:10px 15px;border:none;border-radius:8px;background:#3498db;color:white;cursor:pointer;margin-left:8px;}
-#addBtn:hover{background:#2980b9;}
+body{font-family:sans-serif;background:#f0f2f5;margin:0;padding:20px;}
+h1{text-align:center;margin-bottom:20px;}
+.container{max-width:700px;margin:auto;}
+#message{display:none;padding:10px;border-radius:6px;margin-bottom:10px;}
+#message.success{background:#2ecc71;color:white;}
+#message.error{background:#e74c3c;color:white;}
+.note{background:#fff;padding:15px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);margin-bottom:10px;transition:0.2s;position:relative;}
+.note.important{border-left:5px solid #e74c3c;}
+.note:hover{box-shadow:0 5px 15px rgba(0,0,0,0.15);}
+.note h3{margin:0 0 5px 0;cursor:text;}
+.note p{margin:0 0 5px 0;cursor:text;}
+.buttons{display:flex;gap:8px;position:absolute;top:10px;right:10px;}
+button{padding:5px 10px;border:none;border-radius:6px;cursor:pointer;}
+button.delete{background:#e74c3c;color:white;}
+button.edit{background:#3498db;color:white;}
+button.toggle{background:#f39c12;color:white;}
+#newTitle,#newContent{width:100%;padding:8px;margin:5px 0;border-radius:6px;border:1px solid #ccc;}
+#addBtn{background:#2ecc71;color:white;width:100%;padding:10px;border:none;border-radius:8px;cursor:pointer;}
+#addBtn:hover{background:#27ae60;}
 </style>
 </head>
 <body>
-<h1>To-Do List</h1>
+<h1>Notes Manager</h1>
 <div class="container">
-<div>
-<input type="text" id="newTask" placeholder="Add new task..."/>
-<button id="addBtn">Add</button>
-</div>
-<div id="taskList"></div>
+<div id="message"></div>
+<input type="text" id="newTitle" placeholder="Title">
+<textarea id="newContent" placeholder="Content" rows="3"></textarea>
+<label><input type="checkbox" id="newImportant"> Mark as Important</label>
+<button id="addBtn">Add Note</button>
+<div id="notesList"></div>
 </div>
 
 <script>
-let tasks = [];
-const taskList = document.getElementById('taskList');
+const notesList=document.getElementById('notesList');
+const message=document.getElementById('message');
 
-async function fetchTasks(){
-    const res = await fetch('/api/tasks');
-    tasks = await res.json();
-    renderTasks();
+function showMessage(text,type='success'){
+    message.textContent=text;
+    message.className=type;
+    message.style.display='block';
+    setTimeout(()=>message.style.display='none',2000);
 }
 
-function renderTasks(){
-    taskList.innerHTML='';
-    tasks.forEach(t=>{
-        const div = document.createElement('div');
-        div.className='task'+(t.completed?' completed':'');
-        div.draggable=true;
-        div.dataset.id=t.id;
-        div.innerHTML=`<input type="checkbox"${t.completed?' checked':''}>
-            <span contenteditable="true">${t.title}</span>
+let notes=[];
+
+async function fetchNotes(){
+    const res=await fetch('/api/notes');
+    notes=await res.json();
+    renderNotes();
+}
+
+function renderNotes(){
+    notesList.innerHTML='';
+    notes.forEach(n=>{
+        const div=document.createElement('div');
+        div.className='note'+(n.important?' important':'');
+        div.dataset.id=n.id;
+        div.innerHTML=`<h3 contenteditable="true">${n.title}</h3>
+            <p contenteditable="true">${n.content}</p>
             <div class="buttons">
-                <button class="toggle">${t.completed?'Undo':'Done'}</button>
+                <button class="edit">Save</button>
                 <button class="delete">Delete</button>
+                <button class="toggle">${n.important?'Unmark':'Mark'} Important</button>
             </div>`;
-        // events
-        const checkbox=div.querySelector('input');
-        checkbox.onchange=async ()=>{await fetch('/api/tasks/'+t.id+'/toggle',{method:'POST'});fetchTasks();};
-        div.querySelector('.toggle').onclick=async ()=>{await fetch('/api/tasks/'+t.id+'/toggle',{method:'POST'});fetchTasks();};
-        div.querySelector('.delete').onclick=async ()=>{await fetch('/api/tasks/'+t.id,{method:'DELETE'});fetchTasks();};
-        const span = div.querySelector('span');
-        span.onblur=async ()=>{await fetch('/api/tasks/'+t.id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:span.textContent})});fetchTasks();};
-        taskList.appendChild(div);
+        const h3=div.querySelector('h3');
+        const p=div.querySelector('p');
+        div.querySelector('.edit').onclick=async ()=>{
+            await fetch('/api/notes/'+n.id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:h3.textContent,content:p.textContent})});
+            showMessage('Note updated!');
+            fetchNotes();
+        };
+        div.querySelector('.delete').onclick=async ()=>{
+            await fetch('/api/notes/'+n.id,{method:'DELETE'});
+            showMessage('Note deleted!');
+            fetchNotes();
+        };
+        div.querySelector('.toggle').onclick=async ()=>{
+            await fetch('/api/notes/'+n.id+'/toggle',{method:'POST'});
+            showMessage('Important status changed!');
+            fetchNotes();
+        };
+        notesList.appendChild(div);
     });
-    enableDragDrop();
 }
 
-// Add new task
 document.getElementById('addBtn').onclick=async ()=>{
-    const title=document.getElementById('newTask').value;
-    if(!title)return;
-    await fetch('/api/tasks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title})});
-    document.getElementById('newTask').value='';
-    fetchTasks();
+    const title=document.getElementById('newTitle').value.trim();
+    const content=document.getElementById('newContent').value.trim();
+    const important=document.getElementById('newImportant').checked;
+    if(!title || !content){showMessage('Please fill both fields','error'); return;}
+    await fetch('/api/notes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title,content,important})});
+    document.getElementById('newTitle').value='';
+    document.getElementById('newContent').value='';
+    document.getElementById('newImportant').checked=false;
+    showMessage('Note added!');
+    fetchNotes();
 };
 
-// Drag & Drop reorder
-function enableDragDrop(){
-    let dragged=null;
-    taskList.querySelectorAll('.task').forEach(task=>{
-        task.ondragstart=e=>{dragged=task;e.dataTransfer.effectAllowed='move';};
-        task.ondragover=e=>{e.preventDefault();task.style.borderTop='2px solid #3498db';};
-        task.ondragleave=e=>{task.style.borderTop='';};
-        task.ondrop=async e=>{
-            e.preventDefault();
-            task.style.borderTop='';
-            taskList.insertBefore(dragged, task);
-            const order=Array.from(taskList.children).map(d=>d.dataset.id);
-            await fetch('/api/tasks/reorder',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({order})});
-            fetchTasks();
-        };
-        task.ondragend=e=>{task.style.borderTop='';};
-    });
-}
-
-fetchTasks();
+fetchNotes();
 </script>
 </body>
 </html>
