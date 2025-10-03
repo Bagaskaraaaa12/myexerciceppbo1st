@@ -94,7 +94,7 @@
     <div class="section">
     <p>Tugas Praktikum 7 - To-Do List Manager</p>
     <div class="menu single">
-        <a href="praktikum7/public/index.php"> Praktikum 7 </a>
+        <a href="praktikum7.php"> Praktikum 7 </a>
     </div>
     </div>
 
