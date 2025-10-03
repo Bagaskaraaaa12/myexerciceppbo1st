@@ -18,14 +18,13 @@ COPY praktikum52.php /var/www/html/
 COPY praktikum6.php /var/www/html/
 COPY praktikum7 /var/www/html/praktikum7
 
-# Ubah DocumentRoot ke praktikum7
-RUN sed -i 's#/var/www/html#/var/www/html/praktikum7#g' /etc/apache2/sites-available/000-default.conf \
-    && sed -i 's#/var/www/html#/var/www/html/praktikum7#g' /etc/apache2/apache2.conf
+# (Opsional) Tambahkan ekstensi PHP jika diperlukan
+# RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Expose port 7860
+# Expose port 80 (default untuk Apache)
 EXPOSE 7860
 
-# Ganti port Apache ke 7860
+# Server akan otomatis dijalankan oleh Apache
 RUN sed -i 's/80/7860/g' /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf
 
 CMD ["apache2-foreground"]
