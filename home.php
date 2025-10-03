@@ -92,7 +92,7 @@
         </div>
     </div>
     <div class="section">
-    <p>Tugas Praktikum 7 - To-Do List Manager</p>
+ 
     <div class="menu single">
         <a href="praktikum7.php"> Praktikum 7 </a>
     </div>
